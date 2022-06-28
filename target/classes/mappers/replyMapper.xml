@@ -7,10 +7,18 @@
   <!-- 댓글 조회 -->
   	<select id = "readReply" resultType = "ko.co.vo.ReplyVO">
   		SELECT 
-  			RNO, CONTENT, WRITER, REGDATE
+  			RNO, CONTENT, WRITER, REGDATE, ANSWERTF
   		FROM MP_REPLY
   		WHERE BNO = #{bno}
   	</select>
+  	
+  	<!-- 댓글 작성 여부 가져오기 -->
+  	<!-- <select id = "replyTF" resultType = "ko.co.vo.ReplyVO">
+  		SELECT 
+  			RNO, CONTENT, WRITER, REGDATE
+  		FROM MP_REPLY
+  		WHERE BNO = #{bno}
+  	</select> -->
   	
   	
    <!-- 댓굴 작성 -->
@@ -20,12 +28,14 @@
 			, RNO
 			, CONTENT
 			, WRITER
+			, ANSWERTF
 		)
 		VALUES(    
 			#{bno}
 			, MP_REPLY_SEQ.NEXTVAL
 			, #{content}
-			, #{writer}	)
+			, #{writer}
+			, #{answertf}	)
    </insert>
    
    <!-- 댓글수정 -->

@@ -42,5 +42,14 @@ public class ReplyDAOImpl implements ReplyDAO{
 	public ReplyVO selectReply(int rno) throws Exception {
 		return sql.selectOne("replyMapper.selectReply", rno);
 	}
+	
+	//답변완료
+	@Override
+	public int tfReply(int bno) throws Exception {
+		System.out.println(bno);
+		return sql.selectOne("replyMapper.replyTF", bno);
+	}
+	
+	
 
 }

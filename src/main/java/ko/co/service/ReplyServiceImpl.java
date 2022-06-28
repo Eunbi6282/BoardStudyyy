@@ -47,5 +47,11 @@ public class ReplyServiceImpl implements ReplyService {
 	public ReplyVO selectReply(int rno) throws Exception {
 		return dao.selectReply(rno);
 	}
+	
+	//답변완료
+	@Override
+	public int tfReply(int bno) throws Exception {
+		return dao.tfReply(bno);
+	}
 
 }

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import ko.co.dao.ReplyDAO;
+import ko.co.dao.ReplyDAOImpl;
 import ko.co.service.BoardService;
 import ko.co.service.ReplyService;
 import ko.co.vo.BoardVO;
@@ -65,6 +67,10 @@ public class BoardController {
 			pageMaker.setTotalCount(service.listCount(scri));
 			
 			model.addAttribute("pageMaker", pageMaker);
+			
+			ReplyVO rrvo = new ReplyVO();
+			rrvo.setAnswertf(replyService.tfReply(rrvo.getBno()));
+			model.addAttribute("rrvo", rrvo);
 			
 			return "board/list";
 			
@@ -141,6 +147,9 @@ public class BoardController {
 			rttr.addAttribute("perPageNum", scri.getPerPageNum());
 			rttr.addAttribute("searchType", scri.getSearchType());
 			rttr.addAttribute("keyword", scri.getKeyword());
+			
+			
+			
 			
 			return "redirect:/board/readView";
 		}

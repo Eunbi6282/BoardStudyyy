@@ -8,8 +8,19 @@ public class ReplyVO {
 	private String content;
 	private String writer;
 	private Date regdate;
+	private int answertf;
 	
 	
+	
+	
+	public int getAnswertf() {
+		return answertf;
+	}
+
+	public void setAnswertf(int answertf) {
+		this.answertf = answertf;
+	}
+
 	public int getBno() {
 		return bno;
 	}
@@ -44,6 +55,6 @@ public class ReplyVO {
 	@Override
 	public String toString() {
 		return "ReplyVO [bno=" + bno + ", rno=" + rno + ", content=" + content + ", writer=" + writer + ", regdate="
-				+ regdate + "]";
+				+ regdate +"]";
 	}
 }

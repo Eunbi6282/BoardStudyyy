@@ -20,5 +20,8 @@ public interface ReplyDAO {
 	// 댓글 조회
 	public ReplyVO selectReply (int rno) throws Exception;
 	
+	// 답변완료
+	public int tfReply(int bno) throws Exception;
+	
 	
 }

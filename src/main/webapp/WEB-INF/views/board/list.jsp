@@ -38,6 +38,7 @@
 								<td><c:out value="${list.writer }" /></td>
 								<td><fmt:formatDate value="${list.regdate }" pattern="yyyy-MM-dd"/></td>
 								<td><c:out value="${list.hit }"></c:out></td>
+								<td><c:out value="${rrvo.answertf }"></c:out></td>
 							</tr>
 						</c:forEach>
 					</table>

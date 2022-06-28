@@ -74,7 +74,12 @@
 					+ "&keyword=${scri.keyword}"
 					+ "&rno="+$(this).attr("data-rno");
 			});
-
+	
+		
+		// 답변완료
+			$(".replyAnswerBtn").on("click", function(){
+				if
+			})
 		})
 	</script>
 	
@@ -144,6 +149,7 @@
 								<div>
 									<button type = "button" class = "replyUpdateBtn" data-rno = "${replyList.rno }">수정</button>
 									<button type = "button" class = "replyDeleteBtn" data-rno = "${replyList.rno }">삭제</button>
+									<button type = "button" class = "replyAnswerBtn" data-rno = "${replyList.rno }">답변완료</button>
 								</div>
 							</li>
 						</c:forEach>

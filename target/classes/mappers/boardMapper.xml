@@ -89,6 +89,8 @@
    		WHERE BNO = #{bno}
    </delete>
    
+   <!-- 답변완료 -->
+   
   
    	
    
