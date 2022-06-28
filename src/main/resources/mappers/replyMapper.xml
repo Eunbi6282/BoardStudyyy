@@ -13,6 +13,48 @@
   	</select>
   	
   	
+   <!-- 댓굴 작성 -->
+   <insert id = "writeReply">
+		INSERT INTO MP_REPLY(
+			BNO
+			, RNO
+			, CONTENT
+			, WRITER
+		)
+		VALUES(    
+			#{bno}
+			, MP_REPLY_SEQ.NEXTVAL
+			, #{content}
+			, #{writer}	)
+   </insert>
+   
+   <!-- 댓글수정 -->
+   	<update id = "updateReply" parameterType="ko.co.vo.ReplyVO">
+   		UPDATE MP_REPLY SET CONTENT = #{content}
+   		WHERE RNO = #{rno}
+   	</update>
+   	
+   <!-- 댓글삭제 -->
+   	<delete id = "deleteReply" parameterType="ko.co.vo.ReplyVO">
+   		DELETE FROM MP_REPLY
+   		WHERE RNO = #{rno}
+   	</delete>
+   	
+   <!-- 선택된 댓글 조회 -->
+   	<select id = "selectReply" resultType="ko.co.vo.ReplyVO">
+   		SELECT 
+   				BNO
+   			,	RNO
+   			,	CONTENT
+   			,	WRITER
+   			,	REGDATE
+   		FROM MP_REPLY
+   		WHERE RNO = #{rno}
+   	</select>
+   
+   
+  	
+  	
   	
   	
   	

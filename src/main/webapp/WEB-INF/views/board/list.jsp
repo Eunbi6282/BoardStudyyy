@@ -4,6 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 	<head>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<title>게시판</title>
 		<style type = "text/css">
 			li{list-style: none; float: left; padding: 6px;}
@@ -32,11 +33,7 @@
 							<tr>
 								<td><c:out value="${list.bno }" /></td>
 								<td>
-									<a href ="/board/readView?bno=${list.bno }
-																&page=${scri.page}
-																&perPageNum=${scri.perPageNum}
-																&searchType=${scri.searchType}
-																&keyword=${scri.keyword }"><c:out value="${list.title }"/></a>
+									<a href ="/board/readView?bno=${list.bno }&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword }"><c:out value="${list.title }"/></a>
 								</td>
 								<td><c:out value="${list.writer }" /></td>
 								<td><fmt:formatDate value="${list.regdate }" pattern="yyyy-MM-dd"/></td>
@@ -51,7 +48,9 @@
 							<option value = "w"<c:out value="${scri.searchType eq 'w' ? 'selected' : '' }"/>>작성자</option>
 							<option value = "tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : '' }"/>>제목+내용</option>
 						</select>
+						
 						<input type ="text" name ="keyword" id ="keywordInput" value = "${scri.keyword}"/>
+						
 						<button id = "searchBtn" type ="button">검색</button>
 						 <script>
 						   $(function(){
@@ -79,6 +78,7 @@
 					</div>
 				</form>
 			</section>
+			<hr/>
 		</div>
 	</body>
 </html>
