@@ -2,6 +2,8 @@ package ko.co.service;
 
 import java.util.List;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import ko.co.vo.BoardVO;
 import ko.co.vo.Criteria;
 import ko.co.vo.SearchCriteria;
@@ -25,9 +27,6 @@ public interface BoardService {
 	
 	//게시물 삭제
 	public void delete(int bno) throws Exception;
-
-
-
-
+	
 
 }
