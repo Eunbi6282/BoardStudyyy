@@ -38,8 +38,8 @@
     
 
     <!-- scan -->
-    <context:component-scan base-package="ko.co.service"></context:component-scan>
-    <context:component-scan base-package="ko.co.dao"></context:component-scan>
-    <context:component-scan base-package="ko.co.vo"></context:component-scan>
+    <context:component-scan base-package="kr.co.service"></context:component-scan>
+    <context:component-scan base-package="kr.co.dao"></context:component-scan>
+    <context:component-scan base-package="kr.co.vo"></context:component-scan>
  
 </beans>

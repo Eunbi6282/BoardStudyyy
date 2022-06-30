@@ -5,21 +5,23 @@
  
  <mapper namespace ="replyMapper">
   <!-- 댓글 조회 -->
-  	<select id = "readReply" resultType = "ko.co.vo.ReplyVO">
+  	<select id = "readReply" resultType = "kr.co.vo.ReplyVO">
   		SELECT 
-  			RNO, CONTENT, WRITER, REGDATE, ANSWERTF
+  			RNO, CONTENT, WRITER, REGDATE
   		FROM MP_REPLY
   		WHERE BNO = #{bno}
   	</select>
   	
   	<!-- 댓글 작성 여부 가져오기 -->
-  	<!-- <select id = "replyTF" resultType = "ko.co.vo.ReplyVO">
-  		SELECT 
-  			RNO, CONTENT, WRITER, REGDATE
-  		FROM MP_REPLY
-  		WHERE BNO = #{bno}
-  	</select> -->
-  	
+  	<select id = "replyTF" resultType = "kr.co.vo.ReplyVO">
+  		
+		SELECT B.BNO, B.TITLE, B.CONTENT, B.WRITER, B.REGDATE, B.HIT, R.RNO, R.CONTENT, R.ANSWERTF
+		FROM MP_BOARD B, MP_REPLY R
+		WHERE B.BNO = R.BNO(+)
+		ORDER BY BNO DESC
+		
+  	</select>
+  
   	
    <!-- 댓굴 작성 -->
    <insert id = "writeReply">
@@ -28,30 +30,29 @@
 			, RNO
 			, CONTENT
 			, WRITER
-			, ANSWERTF
 		)
 		VALUES(    
 			#{bno}
 			, MP_REPLY_SEQ.NEXTVAL
 			, #{content}
 			, #{writer}
-			, #{answertf}	)
+				)
    </insert>
    
    <!-- 댓글수정 -->
-   	<update id = "updateReply" parameterType="ko.co.vo.ReplyVO">
+   	<update id = "updateReply" parameterType="kr.co.vo.ReplyVO">
    		UPDATE MP_REPLY SET CONTENT = #{content}
    		WHERE RNO = #{rno}
    	</update>
    	
    <!-- 댓글삭제 -->
-   	<delete id = "deleteReply" parameterType="ko.co.vo.ReplyVO">
+   	<delete id = "deleteReply" parameterType="kr.co.vo.ReplyVO">
    		DELETE FROM MP_REPLY
    		WHERE RNO = #{rno}
    	</delete>
    	
    <!-- 선택된 댓글 조회 -->
-   	<select id = "selectReply" resultType="ko.co.vo.ReplyVO">
+   	<select id = "selectReply" resultType="kr.co.vo.ReplyVO">
    		SELECT 
    				BNO
    			,	RNO
@@ -61,6 +62,8 @@
    		FROM MP_REPLY
    		WHERE RNO = #{rno}
    	</select>
+   	
+  
    
    
   	

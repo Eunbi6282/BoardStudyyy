@@ -18,7 +18,7 @@
    </insert>
    
    <!-- select는 select한 결과를 담을 VO를 꼭 지정해줘야 함 resultType 필수!! -->
-  <select id="listPage" resultType="ko.co.vo.BoardVO" parameterType="ko.co.vo.SearchCriteria">
+  <select id="listPage" resultType="kr.co.vo.BoardVO" parameterType="kr.co.vo.SearchCriteria">
 		SELECT  BNO, 
 		        TITLE, 
 		        CONTENT,
@@ -48,7 +48,7 @@
 		WHERE BNO = #{bno}
 	</update>
 	
-	<select id="listCount" parameterType="ko.co.vo.SearchCriteria" resultType="int">
+	<select id="listCount" parameterType="kr.co.vo.SearchCriteria" resultType="int">
 		SELECT COUNT(BNO)
 		   FROM MP_BOARD
 		   WHERE 1=1
@@ -66,7 +66,7 @@
 	</sql>
    
    
-   <select id = "read" parameterType="int" resultType="ko.co.vo.BoardVO">
+   <select id = "read" parameterType="int" resultType="kr.co.vo.BoardVO">
    		SELECT BNO
    	 		,  TITLE
    	 		,  CONTENT
@@ -76,7 +76,7 @@
   	 	WHERE BNO = #{bno}
    </select>
    
-   <update id = "update" parameterType="ko.co.vo.BoardVO">
+   <update id = "update" parameterType="kr.co.vo.BoardVO">
    		UPDATE MP_BOARD
    			SET TITLE = #{title},
    				CONTENT = #{content}

@@ -77,10 +77,35 @@
 	
 		
 		// 답변완료
-			$(".replyAnswerBtn").on("click", function(){
-				if
-			})
-		})
+			/*  $(".replyAnswerBtn").on("click", function(){
+				let replyCh = $("")
+				
+				$("#sendBtn").click(function () {
+		            let comment = $("textarea[name=comment]").val();
+		            if (comment.trim() == '') {
+		                alert("댓글을 입력해주세요");
+		                $("textarea[name=comment]").focus();
+		                return;
+		            }
+		            $.ajax({
+		                type: 'POST',       // 요청 메서드
+		                url: '/pro/comments?bno=' + bno,  // 요청 URI
+		                headers: {"content-type": "application/json"}, // 요청 헤더
+		                data: JSON.stringify({bno: bno, comment: comment}),  // 서버로 전송할 데이터. stringify()로 직렬화 필요.
+		                success: function () {
+		                    alert("등록되었습니다.");       // result는 서버가 전송한 데이터
+		                    showList(bno);
+		                },
+		                error: function () {
+		                    alert("error")
+		                } // 에러가 발생했을 때, 호출될 함수
+		            }); // $.ajax()
+		            $("input[name=comment]").val('');
+		            
+		            
+		        });  */
+			}) 
+			
 	</script>
 	
 	<body>
