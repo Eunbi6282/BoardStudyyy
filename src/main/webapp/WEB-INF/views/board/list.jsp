@@ -33,12 +33,12 @@
 							<tr>
 								<td><c:out value="${list.bno }" /></td>
 								<td>
-									<a href ="/board/readView?bno=${list.bno }&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword }"><c:out value="${list.title }"/></a>
+									<a href ="/board/readView?bno=${list.bno }&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword }&answertf=${list.answertf}"><c:out value="${list.title }"/></a>
 								</td>
 								<td><c:out value="${list.writer }" /></td>
 								<td><fmt:formatDate value="${list.regdate }" pattern="yyyy-MM-dd"/></td>
 								<td><c:out value = "${list.hit }"/></td>
-								<td><c:out value = "${listTF[9].answertf }"/></td>
+								<td><c:out value = "${list.answertf }"/></td>
 							</tr>
 						</c:forEach>
 					</table>

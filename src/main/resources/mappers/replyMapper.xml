@@ -15,10 +15,9 @@
   	<!-- 댓글 작성 여부 가져오기 -->
   	<select id = "replyTF" resultType = "kr.co.vo.ReplyVO">
   		
-		SELECT B.BNO, B.TITLE, B.CONTENT, B.WRITER, B.REGDATE, B.HIT, R.RNO, R.CONTENT, R.ANSWERTF
-		FROM MP_BOARD B, MP_REPLY R
-		WHERE B.BNO = R.BNO(+)
-		ORDER BY BNO DESC
+		SELECT BNO, RNO, CONTENT, WRITER, REGDATE
+		FROM MP_REPLY 
+		WHERE BNO = #{bno}
 		
   	</select>
   

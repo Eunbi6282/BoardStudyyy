@@ -60,5 +60,12 @@ public class BoardServiceImpl implements BoardService {
 		dao.delete(bno);
 		
 	}
+	
+	//답변완료 
+	@Override
+	public void answerTF(int bno) throws Exception {
+		System.out.println("service작동");
+		dao.answerTF(bno);
+	}
 
 }

@@ -41,7 +41,6 @@ public class BoardDAOImpl implements BoardDAO{
 	// 게시물 조회
 	@Override
 	public BoardVO read(int bno) throws Exception {
-		
 		return sqlSession.selectOne("boardMapper.read", bno);
 	}
 
@@ -58,13 +57,23 @@ public class BoardDAOImpl implements BoardDAO{
 		sqlSession.delete("boardMapper.delete", bno);
 		
 	}
-
+	
+	//조회수 증가
 	@Override
 	public void boardHit(int bno) throws Exception {
 		sqlSession.update("boardMapper.boardHit", bno);
 		
 	}
 
+	// 답변완료 업데이트
+	@Override
+	public void answerTF(int bno) throws Exception {
+		System.out.println("dao작동");
+		sqlSession.update("boardMapper.answerTF",bno);
+		
+	}
+	
+	
 
 	
 }

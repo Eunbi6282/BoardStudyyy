@@ -22,7 +22,7 @@ public class ReplyServiceImpl implements ReplyService {
 
 	@Override
 	public void writeReply(ReplyVO vo) throws Exception {
-		System.out.println("service작동");
+		
 		dao.writeReply(vo);
 	}
 
@@ -46,12 +46,6 @@ public class ReplyServiceImpl implements ReplyService {
 	@Override
 	public ReplyVO selectReply(int rno) throws Exception {
 		return dao.selectReply(rno);
-	}
-	
-	//답변완료
-	@Override
-	public List<ReplyVO> tfReply(int bno) throws Exception {
-		return dao.tfReply(bno);
 	}
 
 }

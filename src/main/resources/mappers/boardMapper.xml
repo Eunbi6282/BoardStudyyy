@@ -24,14 +24,16 @@
 		        CONTENT,
 		        WRITER, 
 		        REGDATE,
-		        HIT
+		        HIT,
+		        ANSWERTF
 		 FROM ( 
 		        SELECT BNO, 
 		               TITLE, 
 		               CONTENT, 
 		               WRITER, 
 		               REGDATE,
-		               HIT, 
+		               HIT,
+		               ANSWERTF, 
 		               ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
 		         FROM MP_BOARD
 		         WHERE 1=1 
@@ -90,7 +92,11 @@
    </delete>
    
    <!-- 답변완료 -->
-   
+   <update id = "answerTF" parameterType="int">
+	   UPDATE MP_BOARD 
+	   SET ANSWERTF = '답변완료'
+	   WHERE BNO = #{bno}
+   </update>
   
    	
    

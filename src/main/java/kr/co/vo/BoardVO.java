@@ -9,10 +9,17 @@ public class BoardVO {
 	private String writer;
 	private Date regdate;
 	private int hit;
+	private String answertf;
 	
 	
 	
 	
+	public String getAnswertf() {
+		return answertf;
+	}
+	public void setAnswertf(String answertf) {
+		this.answertf = answertf;
+	}
 	public int getHit() {
 		return hit;
 	}

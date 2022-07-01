@@ -28,5 +28,8 @@ public interface BoardService {
 	//게시물 삭제
 	public void delete(int bno) throws Exception;
 	
+	// 답변완료
+	public void answerTF(int bno) throws Exception;
+	
 
 }

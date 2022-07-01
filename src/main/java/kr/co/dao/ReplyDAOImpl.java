@@ -22,7 +22,7 @@ public class ReplyDAOImpl implements ReplyDAO{
 
 	@Override
 	public void writeReply(ReplyVO vo) throws Exception {
-		System.out.println("dao작동");
+		
 		sql.insert("replyMapper.writeReply", vo);
 		
 	}
@@ -43,19 +43,6 @@ public class ReplyDAOImpl implements ReplyDAO{
 	public ReplyVO selectReply(int rno) throws Exception {
 		return sql.selectOne("replyMapper.selectReply", rno);
 	}
-	
-	//답변완료
-	@Override
-	public List<ReplyVO> tfReply(int bno) throws Exception {
-		//게시판의 번호를 넣으면 단벼완료
-		
-		
-		System.out.println(bno);
-		return sql.selectList("replyMapper.replyTF", bno);
-	}
-	
-	
-	
 	
 
 }

@@ -19,8 +19,4 @@ public interface ReplyService {
 	
 	//선택된 댓글 조회
 	public ReplyVO selectReply(int rno) throws Exception;
-	
-	//답변완료
-	public List<ReplyVO> tfReply(int bno) throws Exception;
-	
 }

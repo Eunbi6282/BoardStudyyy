@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -68,16 +69,9 @@ public class BoardController {
 			
 			model.addAttribute("pageMaker", pageMaker);
 			
-			// 답변완료
-			ReplyVO rrvo = new ReplyVO();
-			System.out.println(vo.getBno());
-			model.addAttribute("listTF", replyService.tfReply(vo.getBno()));
-			
 			return "board/list";
 			
 		}
-		
-	
 	
 	//게시판 조회
 		// bno값들은 BoardVO에 들어있기 때문에 서비스를 실행할 때 그 번호를 넣어주어서 read의 값으로 저장
@@ -93,7 +87,6 @@ public class BoardController {
 		//댓글불러오는 코드 - 댓글은 게시물에 종속되어있기 때문에 
 		List<ReplyVO> replyList = replyService.readReply(boardVO.getBno());
 		model.addAttribute("replyList", replyList);
-		
 		
 		return "board/readView";
 	}
@@ -212,7 +205,25 @@ public class BoardController {
 			return "redirect:/board/readView";
 		}
 		
-		
+	// 답변완료 update
+		@RequestMapping(value = "/updateAnswerTF", method = RequestMethod.GET)
+		public String updateAnswerTF(BoardVO vo, Model model, @ModelAttribute("scri") SearchCriteria scri, RedirectAttributes rttr) throws Exception {
+			logger.info("answerTF Update");
+			System.out.println("updateAnswerTF컨트롤러 호출");
+			
+			
+			service.answerTF(vo.getBno());
+			System.out.println("출력 내용 : " + vo.getBno());
+			
+			rttr.addAttribute("bno",vo.getBno());
+			rttr.addAttribute("page",scri.getPage());
+			rttr.addAttribute("perPageNum",scri.getPerPageNum());
+			rttr.addAttribute("searchType", scri.getSearchType());
+			rttr.addAttribute("keyword",scri.getKeyword());
+			
+			return "redirect:/board/list";
+			
+		}
 		
 		
 		
