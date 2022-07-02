@@ -160,6 +160,7 @@
 				</div>
 				
 				<form name = "answerForm" method = "get">
+				<input type="hidden" id="bno" name="bno" value="${read.bno}" />
 				<button type = "button" class = "replyAnswerBtn" >답변완료</button>
 				</form>
 				

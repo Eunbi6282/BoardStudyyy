@@ -92,13 +92,12 @@
    </delete>
    
    <!-- 답변완료 -->
-   <update id = "answerTF" parameterType="int">
+    <update id = "answerTF" parameterType="int">
 	   UPDATE MP_BOARD 
 	   SET ANSWERTF = '답변완료'
 	   WHERE BNO = #{bno}
-   </update>
+   </update> 
   
-   	
    
    
 </mapper>
